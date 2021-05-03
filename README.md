@@ -19,4 +19,4 @@ Note, if using redux one can use conventional redux patterns and middleware such
  
 Note, handlers can also (recursively) call notify as part of their handling logic.
 
-For React app developers, the file withAppConductorHOC_example.js shows and implementation of creating an higher-order-component for isomorphically tieing in your App component (or the like) to the App Conductor system.
+For React app developers, the file withAppConductorHOC_example.js shows an implementation of creating an higher-order-component for isomorphically tieing in your App component (or the like) to the App Conductor system.
