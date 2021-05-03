@@ -1,5 +1,5 @@
 
-export const NoticeMgtModule = (useDebug, logNotice, logPkg, logError) => {
+export const AppConductor = () => {
     let dependencies = {}
     let debugFlags = {
         useDebug: false,
@@ -8,27 +8,27 @@ export const NoticeMgtModule = (useDebug, logNotice, logPkg, logError) => {
         logError: false,
     }
 
-    const setDependencies = (handlers, dispatch, getState) => {
+    const setACDependencies = (handlers, dispatch, getState) => {
         dependencies.handlers = handlers
         dependencies.dispatch = dispatch
         dependencies.getState = getState
     }
-    const setDebugFlags = (useDebug, logNotice, logPkg, logError) => {
+    const setACDebugFlags = (useDebug, logNotice, logPkg, logError) => {
         debugFlags.useDebug = useDebug
         debugFlags.logNotice = logNotice
         debugFlags.logPkg = logPkg
         debugFlags.logError = logError
     }
 
-    const notify = async (notice) => {
+    const notifyAC = async (notice) => {
         const { handlers, dispatch, getState } = dependencies
         if (debugFlags.useDebug && debugFlags.logNotice) {
-            console.log(">>> @notify: Notice: ", notice)
+            console.log(">>> @notifyAC: Notice: ", notice)
         }
         if (handlers[notice.TITLE]) {
             const pkg = await handlers[notice.TITLE](notice, dispatch, getState, notify)
             if (debugFlags.useDebug && debugFlags.logPkg) {
-                console.log(">>> @notify: Returned Pkg: ", pkg)
+                console.log(">>> @notifyAC: Returned Pkg: ", pkg)
             }
             if ( pkg?.doDispatch && typeof pkg?.action === 'object') {
                 dispatch(pkg.action) 
@@ -37,10 +37,10 @@ export const NoticeMgtModule = (useDebug, logNotice, logPkg, logError) => {
         } 
         else {
             if (debugFlags.useDebug && sdebugFlags.logError) {
-                console.error(">>> @notify: HANDLER NOT FOUND for: ", notice.TITLE, notice)
+                console.error(">>> @notifyAC: HANDLER NOT FOUND for: ", notice.TITLE, notice)
             }
         }
     }
 
-    return { notify, addNoticeMgtDependencies }
+    return { notifyAC, setACDependencies, setACDebugFlags }
 } 

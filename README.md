@@ -1,4 +1,6 @@
 
+This is as private-ish ALPHA stage package, which is a conductor pattern implementation for javascript apps.  Can be used with React and other frameworks.
+
 In a component based architecture, many feel that components should ONLY handle events - "NON prospective-cross-cutting events" - that are strickly within their boundries and strickly within their concern.  All other events should be handled at the app level.  Wouldn't it be nice if there was have a generalized implementation to provide for this?  
 
 ...There is: App Conductor
