@@ -1,3 +1,5 @@
- import { AppConductor  } from './AppConductor'
+import { AppConductor  } from './AppConductor'
 
- export const creaeAppConductor = AppConductor
+const createAppConductor = AppConductor
+
+export default createAppConductor

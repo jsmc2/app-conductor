@@ -1,0 +1,19 @@
+{
+  "name": "app-conductor",
+  "version": "1.0.0",
+  "description": "Generalized JavaScript implementation of an app conductor for the conductor pattern.  Can be used with React apps, as well as other type of JS apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsmc2/app-conductor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsmc2/app-conductor/issues"
+  },
+  "homepage": "https://github.com/jsmc2/app-conductor#readme"
+}
