@@ -36,7 +36,7 @@ export const AppConductor = () => {
             return pkg
         } 
         else {
-            if (debugFlags.useDebug && sdebugFlags.logError) {
+            if (debugFlags.useDebug && debugFlags.logError) {
                 console.error(">>> @notifyAC: HANDLER NOT FOUND for: ", notice.TITLE, notice)
             }
         }
