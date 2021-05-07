@@ -26,7 +26,7 @@ export const AppConductor = () => {
             console.log(">>> @notifyAC: Notice: ", notice)
         }
         if (handlers[notice.TITLE]) {
-            const pkg = await handlers[notice.TITLE](notice, dispatch, getState, notify)
+            const pkg = await handlers[notice.TITLE](notice, dispatch, getState, notifyAC)
             if (debugFlags.useDebug && debugFlags.logPkg) {
                 console.log(">>> @notifyAC: Returned Pkg: ", pkg)
             }
