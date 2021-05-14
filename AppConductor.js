@@ -1,4 +1,3 @@
-
 export const AppConductor = () => {
     let dependencies = {}
     let debugFlags = {
@@ -21,7 +20,7 @@ export const AppConductor = () => {
     }
 
     const notifyAC = async (notice) => {
-        const { handlers, dispatch, getState } = dependencies
+        const { handlers, accessories } = dependencies
         if (debugFlags.useDebug && debugFlags.logNotice) {
             console.log(">>> @notifyAC: Notice: ", notice)
         }
