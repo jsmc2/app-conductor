@@ -8,10 +8,10 @@ export const AppConductor = () => {
         logError: false,
     }
 
-    const setACDependencies = (handlers, dispatch, getState) => {
+    const setACDependencies = (handlers, accessories = {}) => {
         dependencies.handlers = handlers
-        dependencies.dispatch = dispatch
-        dependencies.getState = getState
+        dependencies.accessories = accessories
+        dependencies.accessories.notifyAC = notifyAC
     }
     const setACDebugFlags = (useDebug, logNotice, logPkg, logError) => {
         debugFlags.useDebug = useDebug
@@ -26,7 +26,7 @@ export const AppConductor = () => {
             console.log(">>> @notifyAC: Notice: ", notice)
         }
         if (handlers[notice.TITLE]) {
-            const pkg = await handlers[notice.TITLE](notice, dispatch, getState, notifyAC)
+            const pkg = await handlers[notice.TITLE](notice, accessories)
             if (debugFlags.useDebug && debugFlags.logPkg) {
                 console.log(">>> @notifyAC: Returned Pkg: ", pkg)
             }

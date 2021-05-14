@@ -22,11 +22,11 @@ Notices are sent to the App Conductor from the view or wherever in the app by th
 
 The App Conductor handles these notices by delegating them to injected notice handlers typically named after notice titles.
  
-Notice handlers are called with the notice, getState, and a self-reference to notify.
+Notice handlers are called with the notice and an "accessories" object, which can be set with whatever properties you want on initialization, for example Redux's dispatch and getState functions.  Furthermore the notifyAC function is added to accessories.  Hence notice hander's should have a declaration like this: function some_handler_named_after_a_notice_title(notice, ac) {...}.  Note "ac" here is short for accessories (and also app-conductor).
  
-These handlers can do anything - yep even side-effects, but one common chore  is to build an action (a pojo) which is then dispatched to a store - say a redux store's reducers.  To provide for this one can inject in a redux stores (or similiar type stores) dispatch and getState methods which then the conductor can pass to notice handler if the handler functions have calling params to accept them.
+These handlers can do anything - yep even side-effects.  One common chore - if one is using a Redux store - is to build an action (a pojo) which can then be dispatched to the the Redux store's reducers.
  
-Note, if using redux one can use conventional redux patterns and middleware such as redux-thunk or redux-saga, but it's felt that the App-Conductor with handlers provides for an extremely flexible, generalized and non-vendor approach to handling events that lead to state changes and app level activity, since it doesn't conflate an event management/handling solution with a store-state mgt solution.  
+Redux users typically conventional redux patterns and middleware such as redux-thunk or redux-saga, and nothing wrong with that, but it's felt that the App-Conductor with handlers provides for an extremely flexible, generalized and non-vendor approach to handling events that lead to state changes and app level activity, since it doesn't conflate an event management/handling solution with a store-state mgt solution.  
  
 Note, handlers can also (recursively) call notify as part of their handling logic.
 

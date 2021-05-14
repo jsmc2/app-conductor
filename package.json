@@ -1,6 +1,6 @@
 {
   "name": "app-conductor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Generalized JavaScript implementation of an app conductor for the conductor pattern.  Can be used with React apps, as well as other type of JS apps.",
   "main": "index.js",
   "scripts": {
