@@ -5,7 +5,7 @@ import { creaeAppConductor } from 'AppConductor'
 import { noticeHandlers } from '../model/noticeHandlers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-const withAppDecoration = (WrappableComponent) => {
+const withAppConductor = (WrappableComponent) => {
 
   const { notifyAC, setACDependencies } = creaeAppConductor()
 
@@ -34,4 +34,4 @@ const withAppDecoration = (WrappableComponent) => {
   )
 }
 
-export default withAppDecoration
+export default withAppConductor
